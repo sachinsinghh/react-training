@@ -4,7 +4,8 @@ import Button from "react-bootstrap/Button";
 import "./css/Login.css";
 import axios from "axios";
 
-let Signup = () => {
+let Signup = (props) => {
+  console.warn('signup',props)
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,7 +18,8 @@ let Signup = () => {
   function handleSubmit(event) {
       
     event.preventDefault();
-    const url =  'http://Apibyashu.herokuapp.com/api/register'
+
+    const url =  'https://Apibyashu.herokuapp.com/api/register'
     const registerData = { name: name,email:email,password:password }
     axios.post(url, registerData)
         .then(response => console.warn('check register',response))

@@ -17,11 +17,12 @@ let Login = (props) => {
       
     event.preventDefault();
   
-    const url =  'http://Apibyashu.herokuapp.com/api/login'
+  
+    const url =  'https://Apibyashu.herokuapp.com/api/login'
     const loginData = { email:email,password:password }
     axios.post(url, loginData)
-        .then(response => 
-          setToken(response.data.token)
+        .then(response =>  props.history.push('/')
+          // setToken(response.data.token);
           )
         .catch(error => {
            

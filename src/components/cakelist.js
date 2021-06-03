@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React, { useState, useEffect } from "react"
 
-let Cakelist = (props) => {
+let Cakelist = () => {
 
   let [cake, setCake] = useState([]);
+  let [loading,setLoading] = useState(true)
 
   useEffect(() => {
     axios(
@@ -23,11 +24,11 @@ let Cakelist = (props) => {
 
   if (cake) {
     return (
-      <div className="row" style={{ justifyContent: "space-around", padding: "0 2%" }}>
+      <div className="row" style={{ justifyContent: "space-around", padding: "1% 2%" }}>
 
         {cake.map((each, index) => {
 
-          return (<div key={each.cakeid} className="card" style={{ width: "18rem", padding: '1% 2%' }}>
+          return (<div key={each.cakeid} className="card" style={{ width: "18rem", padding: '1% 2%',marginBottom:"1em" }}>
             <img className="card-img-top img-responsive" style={{ height: "10rem" }} src={each.image} alt="Card image cap" />
             <div className="card-body">
               <h5 className="card-title">{each.name}</h5>
@@ -41,7 +42,9 @@ let Cakelist = (props) => {
     )
   }
   else {
+   
     return null
+     
   }
 
 }

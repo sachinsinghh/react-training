@@ -1,4 +1,6 @@
 import {useState} from 'react'
+import { Link } from 'react-router-dom'
+import Signup from './Signup'
 
 let Navbar = (props) => {
    let searchString = "kuch bhi search karo test"
@@ -30,7 +32,7 @@ let Navbar = (props) => {
     return (
      
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">{props.details.projectname}</a>
+  <Link to="/"><a className="navbar-brand" href="#">{props.details.projectname}</a></Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -46,7 +48,8 @@ let Navbar = (props) => {
     
     </ul>
     <div style={{ padding: "0 2%" }}>
-      {!props.check?<button onClick={login}  className="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>:''}
+      {!props.check?<Link to="login"><button onClick={login}  className="btn btn-outline-success my-2 my-sm-0" type="button">Login</button></Link>:''}
+      {!props.check?<Link to="signup"><button style={{ marginLeft:"1em" }}  className="btn btn-outline-success my-2 my-sm-0" type="button">Signup</button></Link>:''}
     
       {props.check?<button onClick={logout}  className="btn btn-outline-success my-2 my-sm-0" type="button">Logout</button>:''}
     
